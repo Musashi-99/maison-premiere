@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 import { Scroller } from '@/components/ui/scroller-1';
 import { collectionData } from '../data/mockData';
 
@@ -93,20 +95,62 @@ const ProductScrollItem = ({ product }: { product: typeof jewelleryProducts[0] }
 );
 
 const HeirloomCollections: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const productRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      headerRef.current?.querySelectorAll('.animate-in') || [],
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 70%',
+        }
+      }
+    );
+
+    productRefs.current.forEach((product, index) => {
+      if (product) {
+        gsap.fromTo(
+          product,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'power3.out',
+            delay: index * 0.08,
+            scrollTrigger: {
+              trigger: product,
+              start: 'top 85%',
+            }
+          }
+        );
+      }
+    });
+  }, { scope: sectionRef });
+
   return (
-    <section className="py-[80px] grid grid-cols-12 gap-8 px-16">
+    <section ref={sectionRef} className="py-[80px] grid grid-cols-12 gap-8 px-16">
       <div className="col-span-12 flex flex-col items-start justify-start pt-12">
-        <div className="max-w-2xl mb-12">
-          <p className="font-label-uppercase text-[11px] tracking-[0.28em] text-[#B89B72] mb-6 uppercase font-normal">
+        <div ref={headerRef} className="max-w-2xl mb-12">
+          <p className="animate-in font-label-uppercase text-[11px] tracking-[0.28em] text-[#B89B72] mb-6 uppercase font-normal">
             Kolkata Craftsmanship
           </p>
-          <h2 className="font-headline-lg text-[56px] text-[#111111] mb-8 leading-[1] font-light tracking-[0.03em]">
+          <h2 className="animate-in font-headline-lg text-[56px] text-[#111111] mb-8 leading-[1] font-light tracking-[0.03em]">
             {collectionData.title}
           </h2>
-          <p className="font-body-md text-[13px] text-[#3D3D3D] mb-10 font-normal leading-[1.85] max-w-[400px]">
+          <p className="animate-in font-body-md text-[13px] text-[#3D3D3D] mb-10 font-normal leading-[1.85] max-w-[400px]">
             {collectionData.description}
           </p>
-          <p className="font-label-uppercase text-[10px] tracking-[0.32em] text-[#B89B72] font-normal">
+          <p className="animate-in font-label-uppercase text-[10px] tracking-[0.32em] text-[#B89B72] font-normal">
             {collectionData.limitedText}
           </p>
         </div>
@@ -114,8 +158,13 @@ const HeirloomCollections: React.FC = () => {
         <div className="w-full">
           <Scroller overflow="x" height="560px" withButtons>
             <div className="flex gap-6 h-full">
-              {jewelleryProducts.map((product) => (
-                <ProductScrollItem key={product.id} product={product} />
+              {jewelleryProducts.map((product, index) => (
+                <div
+                  key={product.id}
+                  ref={(el) => { productRefs.current[index] = el; }}
+                >
+                  <ProductScrollItem product={product} />
+                </div>
               ))}
             </div>
           </Scroller>

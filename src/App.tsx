@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import HeirloomCollections from './components/HeirloomCollections';
@@ -8,7 +11,13 @@ import HeritageEdit from './components/HeritageEdit';
 import FinalStatement from './components/FinalStatement';
 import Footer from './components/Footer';
 
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, []);
+
   return (
     <>
       <div className="luxury-texture-overlay" />
