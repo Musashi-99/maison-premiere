@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Manrope:wght@200..800&display=swap');
+
+@theme {
+  --color-primary: #111111;
+  --color-on-primary: #ffffff;
+  --color-background: #F6F2EE;
+  --color-surface: #F6F2EE;
+  --color-on-surface: #111111;
+  --color-on-surface-variant: #2D2D2D;
+  --color-outline: #B89B72;
+  --color-secondary: #B89B72;
+  --color-surface-container-low: #F1ECE6;
+  --color-surface-bright: #ffffff;
+  --color-outline-variant: #B89B72;
+
+  --font-family-display-xl: 'Cormorant Garamond', serif;
+  --font-family-label-uppercase: 'Manrope', sans-serif;
+  --font-family-navigation: 'Manrope', sans-serif;
+  --font-family-body-lg: 'Manrope', sans-serif;
+  --font-family-headline-lg: 'Cormorant Garamond', serif;
+  --font-family-headline-md: 'Cormorant Garamond', serif;
+  --font-family-body-md: 'Manrope', sans-serif;
+}
+
+body {
+  background-color: #F6F2EE;
+  color: #111111;
+  font-family: 'Manrope', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.luxury-texture-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='paperFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23paperFilter)'/%3E%3C/svg%3E");
+}
+
+.cinematic-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.font-display-xl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 88px;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.font-headline-lg {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  line-height: 1.0;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+}
+
+.font-headline-md {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
+.font-navigation {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  line-height: 1.0;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+}
+
+.font-label-uppercase {
+  font-family: 'Manrope', sans-serif;
+  font-size: 8px;
+  line-height: 1.5;
+  letter-spacing: 0.22em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.font-body-md {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+@keyframes fade-spin {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-fade-spin {
+  animation: fade-spin 1.2s linear infinite;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
