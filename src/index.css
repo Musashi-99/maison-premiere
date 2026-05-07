@@ -151,3 +151,23 @@ body {
   animation: fadeUp 0.8s ease-out 0.3s forwards;
   opacity: 0;
 }
+
+@keyframes scrollReveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.artisan-scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.artisan-scroll-reveal.visible {
+  animation: scrollReveal 1.2s ease-out forwards;
+}
