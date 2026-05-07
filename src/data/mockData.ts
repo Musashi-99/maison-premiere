@@ -12,7 +12,7 @@ export interface Category {
   name: string;
   description: string;
   itemCount: string;
-  isOpen: boolean;
+  isOpen?: boolean;
 }
 
 export const navLinks = [
@@ -70,36 +70,36 @@ export const categories: Category[] = [
   {
     id: 'earrings',
     name: 'earrings',
-    description: 'Sculptural silhouettes in antique gold — from delicate everyday studs to bold, statement-making jhumkas designed to frame the face and elevate even the simplest look with refined elegance.',
+    description: 'Delicate handcrafted silhouettes designed to blend timeless artistry with modern elegance.',
     itemCount: '67 PIECES',
     isOpen: true,
   },
   {
     id: 'necklaces',
     name: 'necklaces',
-    description: '',
-    itemCount: '',
+    description: 'Sculptural forms that drape elegantly, capturing the essence of Kolkata atelier craftsmanship.',
+    itemCount: '42 PIECES',
     isOpen: false,
   },
   {
     id: 'bangles',
     name: 'bangles',
-    description: '',
-    itemCount: '',
+    description: 'Ornate wrist pieces that whisper heritage through intricate filigree and textured gold.',
+    itemCount: '38 PIECES',
     isOpen: false,
   },
   {
     id: 'rings',
     name: 'rings',
-    description: '',
-    itemCount: '',
+    description: 'Architectural bands and statement stones crafted for the modern Bengali muse.',
+    itemCount: '55 PIECES',
     isOpen: false,
   },
   {
     id: 'heirlooms',
     name: 'heirlooms',
-    description: '',
-    itemCount: '',
+    description: 'Rare vintage finds from Bengal’s finest ateliers — pieces to be treasured across generations.',
+    itemCount: '18 PIECES',
     isOpen: false,
   },
 ];

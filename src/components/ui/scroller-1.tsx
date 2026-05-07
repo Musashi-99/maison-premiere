@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button-1";
-import clsx from "clsx";
 
 type TOverflowType = "x" | "y" | "both";
 
@@ -47,10 +46,6 @@ export const Scroller = ({
 }: ScrollerProps) => {
   const items = React.Children.toArray(children);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [showTopOverlay, setShowTopOverlay] = useState(false);
-  const [showBottomOverlay, setShowBottomOverlay] = useState(false);
-  const [showLeftOverlay, setShowLeftOverlay] = useState(false);
-  const [showRightOverlay, setShowRightOverlay] = useState(false);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [lastScrollByWheel, setLastScrollByWheel] = useState<boolean>(false);
@@ -105,25 +100,10 @@ export const Scroller = ({
     setLastScrollByWheel(false);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const { scrollTop, scrollLeft, scrollHeight, scrollWidth, clientHeight, clientWidth } = containerRef.current;
-        setShowTopOverlay((overflow === "y" || overflow === "both") && scrollTop > 0);
-        setShowBottomOverlay((overflow === "y" || overflow === "both") && scrollTop + clientHeight < scrollHeight);
-        setShowLeftOverlay((overflow === "x" || overflow === "both") && scrollLeft > 0);
-        setShowRightOverlay((overflow === "x" || overflow === "both") && scrollLeft + clientWidth < scrollWidth);
-      }
-    };
-
-    handleScroll();
-    const element = containerRef.current;
-    element?.addEventListener("scroll", handleScroll);
-    return () => element?.removeEventListener("scroll", handleScroll);
-  }, [overflow]);
+  const scrollContainerClassName = `flex relative hide-scrollbar overflow-x-auto overflow-y-hidden items-stretch flex-nowrap ${childrenContainerClassName || ''}`;
 
   return (
-    <div className="relative overflow-hidden flex flex-col gap-2" style={{ width, height }}>
+    <div className="relative overflow-hidden flex flex-col" style={{ width, height }}>
       {withButtons && overflow === "y" && (
         <div className="flex justify-center gap-2 m-[1px] z-10">
           <Button aria-label="scroll top" svgOnly shape="rounded" size="small" type="secondary" onClick={() => handleButtonClick("prev")}>
@@ -135,23 +115,19 @@ export const Scroller = ({
         </div>
       )}
       <div
-        className={clsx(
-          "flex relative hide-scrollbar overflow-auto",
-          overflow === "x" ? "flex-row" : "flex-col",
-          childrenContainerClassName
-        )}
+        className={scrollContainerClassName}
         ref={containerRef}
         onWheel={() => setLastScrollByWheel(true)}
       >
         {items.map((child, index) => (
-          <div key={index} ref={(el) => { itemsRef.current[index] = el; }}>
+          <div key={index} className="flex-shrink-0 h-full" ref={(el) => { itemsRef.current[index] = el; }}>
             {child}
           </div>
         ))}
       </div>
       {withButtons && overflow === "x" && (
-        <div className="flex gap-2 m-[1px] z-10">
-          <Button aria-label="scroll leftg" svgOnly shape="rounded" size="small" type="secondary" onClick={() => handleButtonClick("prev")}>
+        <div className="flex gap-2 m-[1px] z-10 justify-center mt-2">
+          <Button aria-label="scroll left" svgOnly shape="rounded" size="small" type="secondary" onClick={() => handleButtonClick("prev")}>
             <ArrowLeft />
           </Button>
           <Button aria-label="scroll right" svgOnly shape="rounded" size="small" type="secondary" onClick={() => handleButtonClick("next")}>
@@ -159,22 +135,6 @@ export const Scroller = ({
           </Button>
         </div>
       )}
-      <div className={clsx(
-        "absolute left-0 right-0 w-full h-10 bg-gradient-to-b from-[#F6F2EE] to-[#F6F2EE]/0 duration-300",
-        showTopOverlay ? (withButtons ? "top-10" : "top-0") : "-top-10"
-      )} />
-      <div className={clsx(
-        "absolute left-0 right-0 w-full h-10 bg-gradient-to-t from-[#F6F2EE] to-[#F6F2EE]/0 duration-300",
-        showBottomOverlay ? "bottom-0" : "-bottom-10"
-      )} />
-      <div className={clsx(
-        "absolute top-0 bottom-0 w-10 h-full bg-gradient-to-r from-[#F6F2EE] to-[#F6F2EE]/0 duration-300",
-        showLeftOverlay ? "left-0" : "-left-10"
-      )} />
-      <div className={clsx(
-        "absolute top-0 bottom-0 w-10 h-full bg-gradient-to-l from-[#F6F2EE] to-[#F6F2EE]/0 duration-300",
-        showRightOverlay ? "right-0" : "-right-10"
-      )} />
     </div>
   );
 };

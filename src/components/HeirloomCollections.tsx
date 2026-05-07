@@ -70,22 +70,22 @@ const jewelleryProducts = [
 ];
 
 const ProductScrollItem = ({ product }: { product: typeof jewelleryProducts[0] }) => (
-  <div className="flex-shrink-0 w-[280px] bg-[#F1ECE6] group cursor-pointer">
-    <div className="relative overflow-hidden">
+  <div className="flex-shrink-0 w-[280px] h-[480px] bg-[#F1ECE6] group cursor-pointer flex flex-col overflow-hidden">
+    <div className="relative w-full h-[340px] overflow-hidden flex-shrink-0">
       <img
         src={product.image}
         alt={product.alt}
-        className="w-full h-[380px] object-cover transition-transform duration-700 group-hover:scale-[1.03] mix-blend-multiply"
+        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
       />
     </div>
-    <div className="px-6 py-5">
-      <p className="font-label-uppercase text-[7px] text-[#B89B72] tracking-[0.25em] mb-2 uppercase">
+    <div className="px-6 py-4 flex flex-col flex-grow min-h-[120px]">
+      <p className="font-label-uppercase text-[7px] text-[#B89B72] tracking-[0.25em] mb-1.5 uppercase leading-none">
         {product.category}
       </p>
-      <p className="font-body-md text-[10px] text-[#333333] mb-2 font-normal leading-relaxed">
+      <p className="font-body-md text-[10px] text-[#6F6962] mb-2 font-normal leading-relaxed line-clamp-2">
         {product.name}
       </p>
-      <p className="font-headline-md text-[18px] text-[#111111] font-light tracking-[0.02em]">
+      <p className="font-headline-md text-[17px] text-[#111111] font-light tracking-[0.02em] mt-auto">
         {product.price}
       </p>
     </div>
@@ -112,8 +112,8 @@ const HeirloomCollections: React.FC = () => {
         </div>
         
         <div className="w-full">
-          <Scroller overflow="x" height="500px" withButtons>
-            <div className="flex gap-6 pr-8">
+          <Scroller overflow="x" height="520px" withButtons>
+            <div className="flex gap-5 h-full">
               {jewelleryProducts.map((product) => (
                 <ProductScrollItem key={product.id} product={product} />
               ))}
