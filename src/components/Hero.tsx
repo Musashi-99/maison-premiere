@@ -13,10 +13,10 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
       </div>
       <div className="relative z-10 flex flex-col items-center text-center px-4 mt-20">
-        <h1 className="font-display-xl text-[140px] text-white mb-8 tracking-[-0.05em] font-light uppercase">
+        <h1 className="font-display-xl text-[160px] text-white mb-10 tracking-[-0.05em] font-light uppercase">
           {heroData.title}
         </h1>
-        <p className="font-body-lg text-[14px] text-white max-w-md opacity-90 font-light leading-relaxed">
+        <p className="font-body-lg text-[16px] text-white max-w-md opacity-90 font-light leading-relaxed">
           {heroData.subtitle}
         </p>
       </div>

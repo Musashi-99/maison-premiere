@@ -119,7 +119,7 @@ export const categorySectionData = {
 
 export const philosophyData = {
   title: 'OUR PHILOSOPHY',
-  description: 'We create pieces that live with the body — carrying the soul of Bengal\'s rich artisanal heritage. Each form is guided by tradition, proportion, and tactility, allowing antique gold to speak through light, weight, and history. Nothing is excessive; every detail exists for a reason, crafted to be passed down through generations.',
+  description: `Rooted in the artistry of Bengal, Chokmoki creates jewelry that carries memory, emotion, and quiet elegance. Each piece is designed to feel timeless - blending traditional craftsmanship with a refined modern silhouette. Inspired by Kolkata's heritage ateliers, our collections celebrate delicate detail, graceful femininity, and the beauty of everyday adornment. From sculpted silver forms to heirloom-inspired textures, every design is crafted to feel personal, expressive, and enduring. We believe jewelry is more than ornamentation. It is identity, ritual, and storytelling worn close to the skin. Crafted in 92.5 sterling silver and finished with meticulous care, every Chokmoki piece is designed to move effortlessly between heritage and contemporary style - preserving the soul of Bengali craftsmanship through a modern editorial lens. Quiet luxury. Timeless artistry. Made to be treasured.`,
   currentSlide: 2,
   totalSlides: 8,
   images: [

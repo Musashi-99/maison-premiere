@@ -34,9 +34,9 @@ const Categories: React.FC = () => {
   };
 
   return (
-    <section className="py-[120px] grid grid-cols-12 gap-0">
+    <section className="py-[96px] grid grid-cols-12 gap-0">
       <div className="col-span-5 pr-32 flex flex-col pt-16">
-        <h2 className="font-headline-lg text-[72px] text-[#111111] mb-20 tracking-tight font-light uppercase leading-none">
+        <h2 className="font-headline-lg text-[84px] text-[#111111] mb-16 tracking-tight font-light uppercase leading-none">
           {categorySectionData.title}
         </h2>
         
@@ -45,7 +45,7 @@ const Categories: React.FC = () => {
             <button
               key={category.id}
               onClick={() => handleCategoryClick(category.id)}
-              className={`group relative py-5 border-b border-[rgba(17,17,17,0.1)] text-left transition-all duration-400 ease-out
+              className={`group relative py-6 border-b border-[rgba(17,17,17,0.1)] text-left transition-all duration-400 ease-out
                 ${activeCategory === category.id 
                   ? 'bg-transparent' 
                   : 'hover:bg-[rgba(184,155,114,0.06)] hover:transition-colors'
@@ -53,14 +53,14 @@ const Categories: React.FC = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className={`font-body-md text-[10px] tracking-[0.3em] uppercase transition-all duration-300 ${
+                  <span className={`font-body-md text-[12px] tracking-[0.3em] uppercase transition-all duration-300 ${
                     activeCategory === category.id 
                       ? 'text-[#B89B72] opacity-100' 
                       : 'text-[#6F6962] opacity-0 group-hover:opacity-50'
                   }`}>
                     {activeCategory === category.id ? '✦' : ''}
                   </span>
-                  <span className={`font-headline-lg text-[34px] text-[#111111] tracking-tight transition-all duration-300 ${
+                  <span className={`font-headline-lg text-[40px] text-[#111111] tracking-tight transition-all duration-300 ${
                     activeCategory === category.id 
                       ? 'font-normal text-[#111111]' 
                       : 'font-light text-[#111111]/60 group-hover:text-[#B89B72]/70'
@@ -75,13 +75,13 @@ const Categories: React.FC = () => {
               </div>
 
               {activeCategory === category.id && activeData?.description && (
-                <div className="mt-4 pl-7 overflow-hidden">
+                <div className="mt-5 pl-7 overflow-hidden">
                   <div className={`transition-all duration-500 ease-out ${isAnimating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
-                    <p className="font-body-md text-[16px] text-[#5F5953] leading-[1.75] max-w-[340px] font-light">
+                    <p className="font-body-md text-[18px] text-[#5F5953] leading-[1.75] max-w-[340px] font-light">
                       {activeData.description}
                     </p>
                     <div className="mt-6 flex items-center gap-3">
-                      <span className="font-label-uppercase text-[8px] text-[#B89B72] tracking-[0.3em] uppercase">
+                      <span className="font-label-uppercase text-[10px] text-[#B89B72] tracking-[0.3em] uppercase">
                         {activeData.itemCount}
                       </span>
                       <span className="w-10 h-[1px] bg-[rgba(17,17,17,0.12)]" />
@@ -95,7 +95,7 @@ const Categories: React.FC = () => {
       </div>
 
       <div className="col-span-7 relative">
-        <div className="overflow-hidden h-[700px]">
+        <div className="overflow-hidden h-[720px]">
           <div className={`w-full h-full transition-all duration-600 ease-out ${isAnimating ? 'opacity-0 scale-[1.01]' : 'opacity-100 scale-100'}`}>
             <img
               alt={`${activeCategory} - Bengali luxury jewelry`}
@@ -108,11 +108,11 @@ const Categories: React.FC = () => {
           </div>
         </div>
 
-        <div className="absolute right-12 top-1/2 -translate-y-1/2 w-[320px] bg-[#F6F2EE]/95 backdrop-blur-sm p-7 shadow-[0_8px_40px_rgba(17,17,17,0.06)] z-10 translate-x-4">
+        <div className="absolute right-12 top-1/2 -translate-y-1/2 w-[340px] bg-[#F6F2EE]/95 backdrop-blur-sm p-8 shadow-[0_8px_40px_rgba(17,17,17,0.06)] z-10 translate-x-4">
           <div className="relative overflow-hidden">
             <img
               alt={categorySectionData.featuredProduct.alt}
-              className={`w-full h-[280px] object-cover mb-5 transition-all duration-500 ease-out ${isAnimating ? 'opacity-0 scale-[1.01]' : 'opacity-100 scale-100'}`}
+              className={`w-full h-[300px] object-cover mb-6 transition-all duration-500 ease-out ${isAnimating ? 'opacity-0 scale-[1.01]' : 'opacity-100 scale-100'}`}
               src={categorySectionData.featuredProduct.image}
               style={{
                 filter: 'brightness(0.99) saturate(0.88)',
@@ -121,18 +121,18 @@ const Categories: React.FC = () => {
           </div>
           
           <div className={`transition-all duration-500 ease-out ${isAnimating ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
-            <div className="flex items-center gap-3 mb-3">
-              <span className="font-label-uppercase text-[7px] text-[#B89B72] tracking-[0.35em] uppercase">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="font-label-uppercase text-[9px] text-[#B89B72] tracking-[0.35em] uppercase">
                 {categorySectionData.featuredProduct.category}
               </span>
               <span className="w-6 h-[1px] bg-[#B89B72]/40" />
             </div>
             
-            <h3 className="font-headline-md text-[23px] text-[#111111] font-light tracking-tight mb-1">
+            <h3 className="font-headline-md text-[26px] text-[#111111] font-light tracking-tight mb-1">
               {categorySectionData.featuredProduct.name}
             </h3>
             
-            <p className="font-body-md text-[14px] text-[#5F5953]">
+            <p className="font-body-md text-[16px] text-[#5F5953]">
               {categorySectionData.featuredProduct.price}
             </p>
           </div>

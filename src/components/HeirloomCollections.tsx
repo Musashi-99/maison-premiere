@@ -70,22 +70,22 @@ const jewelleryProducts = [
 ];
 
 const ProductScrollItem = ({ product }: { product: typeof jewelleryProducts[0] }) => (
-  <div className="flex-shrink-0 w-[280px] h-[480px] bg-[#F1ECE6] group cursor-pointer flex flex-col overflow-hidden">
-    <div className="relative w-full h-[340px] overflow-hidden flex-shrink-0">
+  <div className="flex-shrink-0 w-[320px] h-[520px] bg-[#F1ECE6] group cursor-pointer flex flex-col overflow-hidden">
+    <div className="relative w-full h-[360px] overflow-hidden flex-shrink-0">
       <img
         src={product.image}
         alt={product.alt}
         className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
       />
     </div>
-    <div className="px-6 py-4 flex flex-col flex-grow min-h-[120px]">
-      <p className="font-label-uppercase text-[7px] text-[#B89B72] tracking-[0.25em] mb-1.5 uppercase leading-none">
+    <div className="px-8 py-5 flex flex-col flex-grow min-h-[140px]">
+      <p className="font-label-uppercase text-[9px] text-[#B89B72] tracking-[0.25em] mb-2 uppercase leading-none">
         {product.category}
       </p>
-      <p className="font-body-md text-[10px] text-[#6F6962] mb-2 font-normal leading-relaxed line-clamp-2">
+      <p className="font-body-md text-[12px] text-[#6F6962] mb-3 font-normal leading-relaxed line-clamp-2">
         {product.name}
       </p>
-      <p className="font-headline-md text-[17px] text-[#111111] font-light tracking-[0.02em] mt-auto">
+      <p className="font-headline-md text-[20px] text-[#111111] font-light tracking-[0.02em] mt-auto">
         {product.price}
       </p>
     </div>
@@ -94,26 +94,26 @@ const ProductScrollItem = ({ product }: { product: typeof jewelleryProducts[0] }
 
 const HeirloomCollections: React.FC = () => {
   return (
-    <section className="py-[96px] grid grid-cols-12 gap-8 px-12">
+    <section className="py-[80px] grid grid-cols-12 gap-8 px-16">
       <div className="col-span-12 flex flex-col items-start justify-start pt-12">
-        <div className="max-w-2xl mb-10">
-          <p className="font-label-uppercase text-[9px] tracking-[0.28em] text-[#B89B72] mb-5 uppercase font-normal">
+        <div className="max-w-2xl mb-12">
+          <p className="font-label-uppercase text-[11px] tracking-[0.28em] text-[#B89B72] mb-6 uppercase font-normal">
             Kolkata Craftsmanship
           </p>
-          <h2 className="font-headline-lg text-[48px] text-[#111111] mb-6 leading-[1] font-light tracking-[0.03em]">
+          <h2 className="font-headline-lg text-[56px] text-[#111111] mb-8 leading-[1] font-light tracking-[0.03em]">
             {collectionData.title}
           </h2>
-          <p className="font-body-md text-[11px] text-[#3D3D3D] mb-8 font-normal leading-[1.85] max-w-[400px]">
+          <p className="font-body-md text-[13px] text-[#3D3D3D] mb-10 font-normal leading-[1.85] max-w-[400px]">
             {collectionData.description}
           </p>
-          <p className="font-label-uppercase text-[8px] tracking-[0.32em] text-[#B89B72] font-normal">
+          <p className="font-label-uppercase text-[10px] tracking-[0.32em] text-[#B89B72] font-normal">
             {collectionData.limitedText}
           </p>
         </div>
         
         <div className="w-full">
-          <Scroller overflow="x" height="520px" withButtons>
-            <div className="flex gap-5 h-full">
+          <Scroller overflow="x" height="560px" withButtons>
+            <div className="flex gap-6 h-full">
               {jewelleryProducts.map((product) => (
                 <ProductScrollItem key={product.id} product={product} />
               ))}
@@ -121,14 +121,14 @@ const HeirloomCollections: React.FC = () => {
           </Scroller>
         </div>
         
-        <div className="flex items-center gap-5 mt-8">
-          <span className="material-symbols-outlined text-[11px] text-[#B89B72] cursor-pointer hover:text-[#111111] transition-colors duration-300">
+        <div className="flex items-center gap-6 mt-10">
+          <span className="material-symbols-outlined text-[14px] text-[#B89B72] cursor-pointer hover:text-[#111111] transition-colors duration-300">
             arrow_back_ios
           </span>
-          <span className="font-label-uppercase text-[9px] text-[#111111] tracking-[0.2em] font-normal">
+          <span className="font-label-uppercase text-[11px] text-[#111111] tracking-[0.2em] font-normal">
             {collectionData.currentSlide} — {collectionData.totalSlides}
           </span>
-          <span className="material-symbols-outlined text-[11px] text-[#111111] cursor-pointer hover:text-[#B89B72] transition-colors duration-300">
+          <span className="material-symbols-outlined text-[14px] text-[#111111] cursor-pointer hover:text-[#B89B72] transition-colors duration-300">
             arrow_forward_ios
           </span>
         </div>

@@ -27,10 +27,10 @@ export default {
         full: "0"
       },
       spacing: {
-        "margin-edge": "40px",
-        "element-gap": "40px",
-        gutter: "32px",
-        "section-gap": "120px",
+        "margin-edge": "48px",
+        "element-gap": "32px",
+        gutter: "24px",
+        "section-gap": "96px",
         unit: "4px"
       },
       fontFamily: {
@@ -42,14 +42,14 @@ export default {
         "headline-md": ["Bodoni Moda", "serif"],
         "body-md": ["Manrope", "sans-serif"]
       },
-      fontSize: {
-        "display-xl": ["90px", { lineHeight: "1.0", letterSpacing: "-0.02em", fontWeight: "400" }],
-        "label-uppercase": ["9px", { lineHeight: "1.2", letterSpacing: "0.15em", fontWeight: "400" }],
-        navigation: ["10px", { lineHeight: "1.0", letterSpacing: "0.15em", fontWeight: "400" }],
-        "body-lg": ["13px", { lineHeight: "1.8", fontWeight: "300" }],
-        "headline-lg": ["64px", { lineHeight: "1.0", letterSpacing: "-0.03em", fontWeight: "400" }],
-        "headline-md": ["28px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400" }],
-        "body-md": ["12px", { lineHeight: "1.8", fontWeight: "300" }]
+fontSize: {
+        "display-xl": ["104px", { lineHeight: "1.0", letterSpacing: "-0.02em", fontWeight: "400" }],
+        "label-uppercase": ["10px", { lineHeight: "1.2", letterSpacing: "0.15em", fontWeight: "400" }],
+        "navigation": ["12px", { lineHeight: "1.0", letterSpacing: "0.15em", fontWeight: "400" }],
+        "body-lg": ["15px", { lineHeight: "1.8", fontWeight: "300" }],
+        "headline-lg": ["72px", { lineHeight: "1.0", letterSpacing: "-0.03em", fontWeight: "400" }],
+        "headline-md": ["32px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400" }],
+        "body-md": ["14px", { lineHeight: "1.8", fontWeight: "300" }]
       }
     },
   },

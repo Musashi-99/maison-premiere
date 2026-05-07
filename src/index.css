@@ -60,7 +60,7 @@ body {
 
 .font-display-xl {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 88px;
+  font-size: 100px;
   line-height: 1.0;
   letter-spacing: -0.01em;
   font-weight: 400;
@@ -68,7 +68,7 @@ body {
 
 .font-headline-lg {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 48px;
+  font-size: 56px;
   line-height: 1.0;
   letter-spacing: 0.03em;
   font-weight: 400;
@@ -76,7 +76,7 @@ body {
 
 .font-headline-md {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 1.4;
   letter-spacing: 0.02em;
   font-weight: 400;
@@ -84,7 +84,7 @@ body {
 
 .font-navigation {
   font-family: 'Manrope', sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.0;
   letter-spacing: 0.15em;
   font-weight: 400;
@@ -92,7 +92,7 @@ body {
 
 .font-label-uppercase {
   font-family: 'Manrope', sans-serif;
-  font-size: 8px;
+  font-size: 10px;
   line-height: 1.5;
   letter-spacing: 0.22em;
   font-weight: 400;
@@ -101,7 +101,7 @@ body {
 
 .font-body-md {
   font-family: 'Manrope', sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   font-weight: 400;
 }
@@ -124,4 +124,30 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.philosophy-fade-in {
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.philosophy-fade-in-delay-1 {
+  animation: fadeUp 0.8s ease-out 0.15s forwards;
+  opacity: 0;
+}
+
+.philosophy-fade-in-delay-2 {
+  animation: fadeUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
 }

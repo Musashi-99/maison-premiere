@@ -7,8 +7,8 @@ interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({ cartCount = 0 }) => {
   return (
-    <nav className="bg-transparent flex justify-between items-center w-full px-12 py-8 fixed top-0 z-50">
-      <div className="flex gap-8 items-center">
+    <nav className="bg-transparent flex justify-between items-center w-full px-16 py-10 fixed top-0 z-50 shadow-[0_2px_20px_rgba(17,17,17,0.03)]">
+      <div className="flex gap-10 items-center">
         {navLinks.map((link, index) => (
           <a
             key={index}
@@ -17,13 +17,13 @@ const NavBar: React.FC<NavBarProps> = ({ cartCount = 0 }) => {
           >
             {link.label}
             {link.hasDropdown && (
-              <span className="material-symbols-outlined text-[12px]">keyboard_arrow_down</span>
+              <span className="material-symbols-outlined text-[14px]">keyboard_arrow_down</span>
             )}
           </a>
         ))}
       </div>
       <div />
-      <div className="flex gap-8 items-center">
+      <div className="flex gap-10 items-center">
         <a
           href="#"
           className="font-navigation uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors duration-300"
@@ -32,7 +32,7 @@ const NavBar: React.FC<NavBarProps> = ({ cartCount = 0 }) => {
         </a>
         <a
           href="#"
-          className="font-navigation uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors duration-300 border border-white/20 px-6 py-2 rounded-full"
+          className="font-navigation uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors duration-300 border border-white/20 px-8 py-3 rounded-full"
         >
           CART ({cartCount})
         </a>

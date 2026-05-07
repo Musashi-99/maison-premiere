@@ -22,13 +22,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, variant = 'default' 
         src={product.image}
       />
       <div className="absolute bottom-8 left-8 right-8 text-left">
-        <p className="font-label-uppercase text-[8px] text-[#B89B72] tracking-[0.22em] mb-2.5 uppercase">
+        <p className="font-label-uppercase text-[10px] text-[#B89B72] tracking-[0.22em] mb-3 uppercase">
           {product.category}
         </p>
-        <p className="font-body-md text-[11px] text-[#333333] mb-2 font-normal leading-relaxed">
+        <p className="font-body-md text-[13px] text-[#333333] mb-2.5 font-normal leading-relaxed">
           {product.name}
         </p>
-        <p className="font-headline-md text-[20px] text-[#111111] font-light tracking-[0.02em]">
+        <p className="font-headline-md text-[24px] text-[#111111] font-light tracking-[0.02em]">
           {product.price}
         </p>
       </div>
