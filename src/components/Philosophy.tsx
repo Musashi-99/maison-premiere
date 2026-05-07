@@ -7,14 +7,14 @@ const Philosophy: React.FC = () => {
       <div className="w-full max-w-5xl mx-auto mb-8">
         <div className="relative w-full aspect-[16/7] overflow-hidden rounded-[14px] shadow-[0_16px_48px_rgba(17,17,17,0.06)] philosophy-fade-in">
           <video
-            className="w-full h-full object-cover bg-[#F6F2EE]"
+            className="w-full h-full object-cover"
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
           >
-            <source src="/Artisan_crafting_silver_ring_Kol._202605072158.mp4" type="video/mp4" />
+            <source src="Artisan_crafting_silver_ring_Kol._202605072158.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-t from-[#F6F2EE]/30 via-[#F6F2EE]/10 to-transparent pointer-events-none" />
         </div>
