@@ -1,6 +1,4 @@
-import React, { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import React from 'react';
 
 const products = [
   {
@@ -31,82 +29,8 @@ const products = [
 ];
 
 const HeritageEdit: React.FC = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const heroCardRef = useRef<HTMLDivElement>(null);
-  const gridCardsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useGSAP(() => {
-    gsap.fromTo(
-      titleRef.current,
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-        }
-      }
-    );
-
-    gsap.fromTo(
-      subtitleRef.current,
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        }
-      }
-    );
-
-    gsap.fromTo(
-      heroCardRef.current,
-      { y: 60, opacity: 0, scale: 0.96 },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: heroCardRef.current,
-          start: 'top 75%',
-        }
-      }
-    );
-
-    gridCardsRef.current.forEach((card, index) => {
-      if (card) {
-        gsap.fromTo(
-          card,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
-            delay: 0.1 + index * 0.1,
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 80%',
-            }
-          }
-        );
-      }
-    });
-  }, { scope: sectionRef });
-
   return (
-    <section ref={sectionRef} className="py-[100px]">
+    <section className="py-[100px]">
       <div className="px-16 mb-12">
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-6">
@@ -115,17 +39,17 @@ const HeritageEdit: React.FC = () => {
             </span>
             <div className="h-[1px] w-16 bg-[#D4C9BC]" />
           </div>
-          <h2 ref={titleRef} className="font-headline-lg text-[68px] text-[#1A1A1A] tracking-tight font-light uppercase leading-[0.92]">
+          <h2 className="font-headline-lg text-[68px] text-[#1A1A1A] tracking-tight font-light uppercase leading-[0.92]">
             Best Sellers
           </h2>
         </div>
-        <p ref={subtitleRef} className="font-body-md text-[15px] text-[#6A6A6A] font-light leading-relaxed max-w-xl">
+        <p className="font-body-md text-[15px] text-[#6A6A6A] font-light leading-relaxed max-w-xl">
           Curated heirlooms shaped by Bengal's timeless artisan legacy.
         </p>
       </div>
 
       <div className="grid grid-cols-12 gap-6 px-16">
-        <div ref={heroCardRef} className="col-span-7 group">
+        <div className="col-span-7 group">
           <div className="bg-[#F5F2EE] rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(30,26,22,0.08)] transition-all duration-700 ease-out group-hover:shadow-[0_32px_80px_rgba(30,26,22,0.14)] group-hover:-translate-y-3">
             <div className="relative h-[720px] w-full">
               <img
@@ -139,14 +63,10 @@ const HeritageEdit: React.FC = () => {
         </div>
 
         <div className="col-span-5 grid grid-cols-2 gap-6">
-          {products.slice(1).map((product, index) => (
-            <div
-              key={product.id}
-              ref={(el) => { gridCardsRef.current[index] = el; }}
-              className="group"
-            >
+          {products.slice(1).map((product) => (
+            <div key={product.id} className="group">
               <div className="bg-[#F5F2EE] rounded-[20px] overflow-hidden shadow-[0_12px_40px_rgba(30,26,22,0.06)] transition-all duration-500 ease-out group-hover:shadow-[0_20px_60px_rgba(30,26,22,0.12)] group-hover:-translate-y-2">
-                <div className="relative h-[340px] w-full">
+                <div className="relative h-[340px] flex items-center justify-center p-6">
                   <img
                     alt={product.alt}
                     className="w-full h-full object-cover mix-blend-multiply opacity-[0.97] transition-transform duration-[1600ms] ease-out group-hover:scale-[1.03]"

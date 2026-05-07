@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import React, { useState, useEffect } from 'react';
 import { navLinks } from '../data/mockData';
 
 interface NavBarProps {
@@ -9,7 +7,6 @@ interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({ cartCount = 0 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,17 +17,8 @@ const NavBar: React.FC<NavBarProps> = ({ cartCount = 0 }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useGSAP(() => {
-    gsap.fromTo(
-      containerRef.current,
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.3 }
-    );
-  }, { scope: containerRef });
-
   return (
     <nav
-      ref={containerRef}
       className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-16 py-8 transition-all duration-700 ease-out ${
         isScrolled
           ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-[0_2px_30px_rgba(30,26,22,0.06)]'
